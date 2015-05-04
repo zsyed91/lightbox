@@ -1,0 +1,2 @@
+# lightbox
+Backbone lightbox component
