@@ -8,50 +8,48 @@ Make sure to swap in your template compiling and loading method in `lightbox.js`
 
 
 ## Render lightbox
-{% highlight javascript %}
-define(function(require){
 
-    var Backbone = require("backbone");
-    var Lightbox = require("path/to/lightbox");
+    define(function(require){
 
-    // We want to render this email form within the lightbox
-    var EmailFormView = require("content/within/lightbox");
-    
-    var ContactView = Backbone.View.extend({
+        var Backbone = require("backbone");
+        var Lightbox = require("path/to/lightbox");
 
-        template: "YourTemplate.handlebars",
+        // We want to render this email form within the lightbox
+        var EmailFormView = require("content/within/lightbox");
+        
+        var ContactView = Backbone.View.extend({
 
-        initialize: function(options) {
-            // init logic here
-        },
+            template: "YourTemplate.handlebars",
 
-        events: {
-            "click .email-form": "showForm"
-        },
+            initialize: function(options) {
+                // init logic here
+            },
 
-        render: function() {
-            // render logic
+            events: {
+                "click .email-form": "showForm"
+            },
 
-            this.selElement($(this.template()));
-            return this;
-        },
+            render: function() {
+                // render logic
 
-        showForm: function(event) {
-            this.emailForm = new EmailFormView();
+                this.selElement($(this.template()));
+                return this;
+            },
 
-            this.lightbox = new Lightbox({
-                content: this.emailForm.render().el
-            });
+            showForm: function(event) {
+                this.emailForm = new EmailFormView();
 
-            // Calling render will show the popup
-            this.lightbox.render();
-        }
+                this.lightbox = new Lightbox({
+                    content: this.emailForm.render().el
+                });
+
+                // Calling render will show the popup
+                this.lightbox.render();
+            }
+
+        });
+
+
+        return ContactView;
 
     });
-
-
-    return ContactView;
-
-});
-
-{% endhighlight%}
