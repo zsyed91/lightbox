@@ -1,0 +1,41 @@
+// Provide a transparent background without using a png
+// Feel free to swap this mixin with a png if you need to support old browsers
+@mixin transparent-background($red, $green, $blue, $alpha) {
+    background-color: rgb($red, $green, $blue);
+    background-color: rgba($red, $green, $blue, $alpha);
+}
+
+
+// Vertical align the popup in the browser window
+@mixin vertical-align($offset) {
+    position: relative;
+    top: $offset;
+    -webkit-transform: translateY(-#{$offset});
+    -ms-transform translateY(-#{$offset});
+    transform: translateY(-#{$offset});
+}
+
+#lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 100;
+
+    // So our popup is center horizontally
+    text-align: center;
+
+    /* darken overlay */
+    width: 100%;
+    height: 100%;
+
+    // A transparent black, tune this to your needs
+    @include transparent-background(0, 0, 0, .5); 
+    /* end overlay */
+
+    // Your actual content and the popup itself
+    .content {
+        // Tune this to what looks good, having it dead center for my needs was odd
+        @include vertical-align(40%); 
+
+        // Your custom styling goes here (or in another stylesheet)
+    }
+}
