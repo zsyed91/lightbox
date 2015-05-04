@@ -37,7 +37,7 @@ Make sure to swap in your template compiling and loading method in `lightbox.js`
             },
 
             showForm: function(event) {
-                this.emailForm = new EmailForm();
+                this.emailForm = new EmailFormView();
 
                 this.lightbox = new Lightbox({
                     content: this.emailForm.render().el
