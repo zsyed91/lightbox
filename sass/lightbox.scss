@@ -11,7 +11,7 @@
     position: relative;
     top: $offset;
     -webkit-transform: translateY(-#{$offset});
-    -ms-transform translateY(-#{$offset});
+    -ms-transform: translateY(-#{$offset});
     transform: translateY(-#{$offset});
 }
 
