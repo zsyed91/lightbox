@@ -1,5 +1,5 @@
 define(["backbone"],
-function(BaseApp, Backbone){
+function(Backbone){
 
     var Lightbox = Backbone.View.extend({
         template: $('#lightbox-template'),
